@@ -1,6 +1,6 @@
 {
   "name": "aseprite-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for Aseprite: 73 tools that drive the pixel art editor through its Lua API, headless or live in the open window.",
   "keywords": [
     "mcp",

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1, 17 October 2026
+
+The server now exits when its MCP client disconnects. Before, the bridge's WebSocket listener kept the process alive. On Windows, closing a client that launched the server through `npx` left the node process running on port 41234, and the Aseprite extension would connect to that orphan instead of the new session.
+
 ## 0.1.0, 17 October 2026
 
 First release.

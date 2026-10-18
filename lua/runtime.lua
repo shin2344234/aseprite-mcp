@@ -3,7 +3,7 @@
 -- runner.lua) or inside the GUI through the bridge extension. Every MCP tool
 -- that touches sprites is a handler in MCP.handlers.
 
-local MCP = { version = "0.1.0", mode = "batch", handlers = {} }
+local MCP = { version = "0.1.1", mode = "batch", handlers = {} }
 
 ----------------------------------------------------------------------
 -- JSON (plain Lua tables; Aseprite's json.decode returns userdata proxies)

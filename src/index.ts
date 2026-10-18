@@ -13,7 +13,7 @@ import { Bridge } from "./bridge.js";
 import { DATA_DIR, EXTENSION_DIR, EXTENSION_NAME, WORK_DIR, findAseprite, userConfigDir } from "./config.js";
 import { upscalePng } from "./images.js";
 
-const VERSION = "0.1.0";
+const VERSION = "0.1.1";
 const bridge = new Bridge();
 
 const INSTRUCTIONS = `Controls Aseprite (pixel art editor) through its Lua scripting API.
@@ -1378,6 +1378,14 @@ luaTool(
 async function main() {
   bridge.start();
   await server.connect(new StdioServerTransport());
+  // The bridge's WebSocket server keeps the event loop alive, so exit when the client goes away.
+  // Otherwise an orphaned process (common on Windows, where killing npx leaves node running)
+  // holds the bridge port and the extension connects to a dead session.
+  const shutdown = () => process.exit(0);
+  process.stdin.on("end", shutdown);
+  process.stdin.on("close", shutdown);
+  server.server.onclose = shutdown;
+  for (const sig of ["SIGINT", "SIGTERM", "SIGHUP"] as const) process.on(sig, shutdown);
 }
 
 main().catch((e) => {
