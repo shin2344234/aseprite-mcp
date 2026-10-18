@@ -1,0 +1,64 @@
+{
+  "name": "aseprite-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Aseprite: 73 tools that drive the pixel art editor through its Lua API, headless or live in the open window.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "aseprite",
+    "pixel-art",
+    "sprite",
+    "animation",
+    "claude",
+    "lua"
+  ],
+  "license": "MIT",
+  "author": "Seth (https://github.com/shin2344234)",
+  "homepage": "https://github.com/shin2344234/aseprite-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shin2344234/aseprite-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shin2344234/aseprite-mcp/issues"
+  },
+  "type": "module",
+  "bin": {
+    "aseprite-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist/",
+    "lua/",
+    "extension/",
+    "data/",
+    "docs/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "docs": "node scripts/gen-docs.mjs",
+    "test": "node test/full.mjs batch",
+    "test:live": "node test/full.mjs live",
+    "test:smoke": "node test/smoke.mjs batch",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "pngjs": "7.0.0",
+    "ws": "8.22.0",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.21",
+    "@types/pngjs": "6.0.5",
+    "@types/ws": "8.18.1",
+    "typescript": "5.8.3"
+  }
+}

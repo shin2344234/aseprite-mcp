@@ -1,0 +1,476 @@
+{
+ "general": {
+  "language": "std::string = \"en\"",
+  "screen_scale": "int = 0",
+  "ui_scale": "int = 1",
+  "gpu_acceleration": "bool = false",
+  "show_home": "bool = true",
+  "visible_timeline": "bool = false",
+  "autoshow_timeline": "bool = true",
+  "rewind_on_stop": "bool = false",
+  "expand_menubar_on_mouseover": "bool = false",
+  "data_recovery": "bool = true",
+  "data_recovery_period": "double = 2.0",
+  "keep_edited_sprite_data": "bool = true",
+  "keep_edited_sprite_data_for": "int = 7",
+  "keep_closed_sprite_on_memory": "bool = true",
+  "keep_closed_sprite_on_memory_for": "double = 15.0",
+  "show_full_path": "bool = true",
+  "edit_full_path": "bool = false",
+  "workspace_layout": "std::string",
+  "timeline_position": "TimelinePosition = TimelinePosition::BOTTOM",
+  "timeline_layer_panel_width": "int = 100",
+  "show_menu_bar": "bool = true",
+  "recent_items": "int = 16",
+  "osx_async_view": "bool = true",
+  "x11_stylus_id": "std::string"
+ },
+ "undo": {
+  "size_limit": "int = 0",
+  "goto_modified": "bool = true",
+  "allow_nonlinear_history": "bool = false",
+  "show_tooltip": "bool = true"
+ },
+ "editor": {
+  "zoom_with_wheel": "bool = true",
+  "zoom_with_slide": "bool = false",
+  "zoom_from_center_with_wheel": "bool = false",
+  "zoom_from_center_with_keys": "bool = false",
+  "invert_brush_size_wheel": "bool = false",
+  "show_scrollbars": "bool = true",
+  "auto_scroll": "bool = true",
+  "right_click_mode": "RightClickMode = RightClickMode::PAINT_BGCOLOR",
+  "auto_select_layer": "bool = false",
+  "auto_select_layer_quick": "bool = true",
+  "straight_line_preview": "bool = true",
+  "play_once": "bool = false",
+  "play_all": "bool = false",
+  "play_subtags": "bool = true",
+  "auto_fit": "bool = false",
+  "downsampling": "Downsampling = Downsampling::BILINEAR_MIPMAP"
+ },
+ "cels": {
+  "user_data_visibility": "bool = false"
+ },
+ "layers": {
+  "user_data_visibility": "bool = false"
+ },
+ "sprite": {
+  "user_data_visibility": "bool = false"
+ },
+ "tags": {
+  "user_data_visibility": "bool = false"
+ },
+ "timeline": {
+  "keep_selection": "bool = false",
+  "select_on_click": "bool = true",
+  "select_on_click_with_key": "bool = true",
+  "select_on_drag": "bool = true",
+  "drag_and_drop_from_edges": "bool = true"
+ },
+ "cursor": {
+  "use_native_cursor": "bool = false",
+  "cursor_scale": "int = 1",
+  "cursor_color": "app::Color = app::Color::fromMask()",
+  "painting_cursor_type": "PaintingCursorType = PaintingCursorType::CROSSHAIR_ON_SPRITE",
+  "brush_preview": "BrushPreview = BrushPreview::FULL",
+  "brush_preview_in_preview": "bool = false",
+  "tile_preview": "BrushPreview = BrushPreview::FULL",
+  "snap_to_grid": "bool = false"
+ },
+ "preview": {
+  "play_once": "bool = false",
+  "play_all": "bool = false",
+  "play_subtags": "bool = true"
+ },
+ "theme": {
+  "selected": "std::string = \"default\"",
+  "font": "std::string",
+  "mini_font": "std::string"
+ },
+ "tablet": {
+  "api": "std::string",
+  "set_cursor_fix": "bool = true"
+ },
+ "experimental": {
+  "multiple_windows": "bool = false",
+  "new_render_engine": "bool = true",
+  "new_blend": "bool = true",
+  "compose_groups": "bool = false",
+  "use_native_clipboard": "bool = true",
+  "use_native_file_dialog": "bool = true",
+  "use_shaders_for_color_selectors": "bool = true",
+  "hue_with_sat_value_for_color_selector": "bool = false",
+  "one_finger_as_mouse_movement": "bool = true",
+  "load_wintab_driver": "bool = false",
+  "flash_layer": "bool = false",
+  "use_selection_tool_loop": "bool = false",
+  "nonactive_layers_opacity": "int = 255",
+  "nonactive_layers_opacity_preview": "int = 255",
+  "tooltip_delay": "int = 300"
+ },
+ "news": {
+  "cache_file": "std::string"
+ },
+ "context_bar": {
+  "show_corner_radius": "bool = false"
+ },
+ "status_bar": {
+  "focus_frame_field_on_mouseover": "bool = false"
+ },
+ "color_bar": {
+  "box_size": "int = 11",
+  "tiles_box_size": "int = 16",
+  "fg_color": "app::Color = app::Color::fromRgb(255, 255, 255)",
+  "bg_color": "app::Color = app::Color::fromRgb(0, 0, 0)",
+  "fg_tile": "doc::tile_t = doc::notile",
+  "bg_tile": "doc::tile_t = doc::notile",
+  "selector": "app::ColorBar::ColorSelector = app::ColorBar::ColorSelector::TINT_SHADE_TONE",
+  "discrete_wheel": "bool = false",
+  "wheel_model": "int = 0",
+  "harmony": "int = 0",
+  "show_invalid_fg_bg_color_alert": "bool = true",
+  "entries_separator": "bool = true",
+  "show_color_and_tiles": "bool = true",
+  "default_tileset_mode": "app::TilesetMode = app::TilesetMode::Auto"
+ },
+ "updater": {
+  "inits": "int = 0",
+  "exits": "int = 0",
+  "is_developer": "bool = false",
+  "wait_days": "double = 0.0",
+  "last_check": "int = 0",
+  "uuid": "std::string",
+  "current_version": "std::string",
+  "new_version": "std::string",
+  "new_url": "std::string"
+ },
+ "brush": {
+  "pattern": "doc::BrushPattern = doc::BrushPattern::DEFAULT"
+ },
+ "save_brush": {
+  "brush_type": "bool = true",
+  "brush_size": "bool = true",
+  "brush_angle": "bool = true",
+  "fg_color": "bool = false",
+  "bg_color": "bool = false",
+  "image_color": "bool = true",
+  "ink_type": "bool = true",
+  "ink_opacity": "bool = true",
+  "shade": "bool = true",
+  "pixel_perfect": "bool = false"
+ },
+ "selection": {
+  "mode": "SelectionMode = SelectionMode::DEFAULT",
+  "move_edges": "bool = true",
+  "modifiers_disable_handles": "bool = true",
+  "move_on_add_mode": "bool = true",
+  "pivot_visibility": "bool = false",
+  "pivot_position": "PivotPosition = PivotPosition::CENTER",
+  "opaque": "bool = false",
+  "auto_opaque": "bool = true",
+  "keep_selection_after_clear": "bool = false",
+  "auto_show_selection_edges": "bool = true",
+  "transparent_color": "app::Color",
+  "rotation_algorithm": "app::tools::RotationAlgorithm = app::tools::RotationAlgorithm::DEFAULT",
+  "modify_selection_quantity": "int = 1",
+  "modify_selection_brush": "BrushType = BrushType::CIRCLE",
+  "doubleclick_select_tile": "bool = true",
+  "force_rotsprite": "bool = false",
+  "multicel_when_layers_or_frames": "bool = true",
+  "snap_to_grid": "bool = true"
+ },
+ "quantization": {
+  "with_alpha": "bool = true",
+  "dithering_algorithm": "std::string",
+  "dithering_factor": "int = 100",
+  "to_gray": "ToGrayAlgorithm = ToGrayAlgorithm::DEFAULT",
+  "advanced": "bool = false",
+  "rgbmap_algorithm": "doc::RgbMapAlgorithm = doc::RgbMapAlgorithm::DEFAULT",
+  "fit_criteria": "doc::FitCriteria = doc::FitCriteria::DEFAULT"
+ },
+ "eyedropper": {
+  "channel": "EyedropperChannel = EyedropperChannel::COLOR_ALPHA",
+  "sample": "EyedropperSample = EyedropperSample::ALL_LAYERS",
+  "discard_brush": "bool = false"
+ },
+ "shared": {
+  "share_dynamics": "bool = true",
+  "share_ink": "bool = false",
+  "ink": "app::tools::InkType = app::tools::InkType::DEFAULT"
+ },
+ "new_file": {
+  "width": "int = 32",
+  "height": "int = 32",
+  "color_mode": "doc::ColorMode = doc::ColorMode::RGB",
+  "background_color": "int = 0",
+  "advanced": "bool = false",
+  "pixel_ratio": "std::string"
+ },
+ "file_selector": {
+  "current_folder": "std::string = \"<empty>\"",
+  "zoom": "double = 1.0",
+  "show_hidden": "bool = false"
+ },
+ "text_tool": {
+  "font_face": "std::string",
+  "font_size": "int = 12",
+  "antialias": "bool = false",
+  "font_info": "std::string"
+ },
+ "symmetry_mode": {
+  "enabled": "bool = false"
+ },
+ "perf": {
+  "show_render_time": "bool = false"
+ },
+ "guides": {
+  "layer_edges_color": "app::Color = app::Color::fromRgb(0, 0, 255)",
+  "auto_guides_color": "app::Color = app::Color::fromRgb(0, 0, 255, 128)"
+ },
+ "slices": {
+  "default_color": "app::Color = app::Color::fromRgb(0, 0, 255)",
+  "user_data_visibility": "bool = false",
+  "use_keys": "bool = false"
+ },
+ "advanced_mode": {
+  "show_alert": "bool = true"
+ },
+ "open_file": {
+  "open_sequence": "SequenceDecision = SequenceDecision::ASK"
+ },
+ "save_file": {
+  "show_file_format_doesnt_support_alert": "bool = true",
+  "show_export_animation_in_sequence_alert": "bool = true",
+  "default_extension": "std::string = \"aseprite\""
+ },
+ "export_file": {
+  "show_overwrite_files_alert": "bool = true",
+  "image_default_extension": "std::string = \"png\"",
+  "animation_default_extension": "std::string = \"gif\""
+ },
+ "sprite_sheet": {
+  "show_overwrite_files_alert": "bool = true",
+  "default_extension": "std::string = \"png\"",
+  "preview": "bool = true",
+  "sections": "std::string"
+ },
+ "gif": {
+  "show_alert": "bool = true",
+  "interlaced": "bool = false",
+  "loop": "bool = true",
+  "preserve_palette_order": "bool = true"
+ },
+ "jpeg": {
+  "show_alert": "bool = true",
+  "quality": "double = 1.0"
+ },
+ "svg": {
+  "show_alert": "bool = true",
+  "pixel_scale": "int = 1"
+ },
+ "tga": {
+  "show_alert": "bool = true",
+  "bits_per_pixel": "int = 0",
+  "compress": "bool = true"
+ },
+ "css": {
+  "show_alert": "bool = true",
+  "pixel_scale": "int = 1",
+  "with_vars": "bool = false",
+  "generate_html": "bool = false"
+ },
+ "webp": {
+  "show_alert": "bool = true",
+  "loop": "bool = true",
+  "type": "int = 0",
+  "quality": "int = 100",
+  "compression": "int = 6",
+  "image_hint": "int = 0",
+  "image_preset": "int = 0"
+ },
+ "hue_saturation": {
+  "mode": "filters::HueSaturationFilter::Mode = filters::HueSaturationFilter::Mode::HSL_MUL"
+ },
+ "filters": {
+  "cels_target": "CelsTarget = CelsTarget::Selected"
+ },
+ "scripts": {
+  "show_run_script_alert": "bool = true"
+ },
+ "color": {
+  "manage": "bool = true",
+  "working_rgb_space": "std::string = \"sRGB\"",
+  "files_with_profile": "ColorProfileBehavior = ColorProfileBehavior::EMBEDDED",
+  "missing_profile": "ColorProfileBehavior = ColorProfileBehavior::ASSIGN",
+  "window_profile": "WindowColorProfile = WindowColorProfile::MONITOR",
+  "window_profile_name": "std::string"
+ },
+ "range": {
+  "alpha": "AlphaRange = AlphaRange::EIGHT_BIT",
+  "opacity": "AlphaRange = AlphaRange::PERCENTAGE"
+ },
+ "canvas_size": {
+  "trim_outside": "bool = false"
+ },
+ "tileset": {
+  "base_index": "int = 1",
+  "cache_compressed_tilesets": "bool = true",
+  "advanced": "bool = false"
+ },
+ "tilemap": {
+  "show_delete_unused_tileset_alert": "bool = true"
+ },
+ "aseprite_format": {
+  "cel_format": "CelContentFormat = CelContentFormat::COMPRESSED"
+ },
+ "tool.brush": {
+  "type": "BrushType = BrushType::CIRCLE",
+  "size": "int = 1",
+  "angle": "int = 0"
+ },
+ "tool.spray": {
+  "width": "int = 16",
+  "speed": "int = 32"
+ },
+ "tool.floodfill": {
+  "stop_at_grid": "StopAtGrid = StopAtGrid::NEVER",
+  "refer_to": "FillReferTo = FillReferTo::ACTIVE_LAYER",
+  "pixel_connectivity": "PixelConnectivity = PixelConnectivity::FOUR_CONNECTED"
+ },
+ "tool.dynamics": {
+  "stabilizer": "bool = false",
+  "stabilizer_factor": "int = 0",
+  "size": "app::tools::DynamicSensor = app::tools::DynamicSensor::Static",
+  "angle": "app::tools::DynamicSensor = app::tools::DynamicSensor::Static",
+  "gradient": "app::tools::DynamicSensor = app::tools::DynamicSensor::Static",
+  "min_size": "int = 1",
+  "min_angle": "int = 1",
+  "color_from_to": "app::tools::ColorFromTo = app::tools::ColorFromTo::BgToFg",
+  "matrix_name": "std::string",
+  "min_pressure_threshold": "double = 0.1",
+  "max_pressure_threshold": "double = 0.9",
+  "min_velocity_threshold": "double = 0.1",
+  "max_velocity_threshold": "double = 0.9"
+ },
+ "document.site": {
+  "frame": "doc::frame_t = doc::frame_t(0)",
+  "layer": "doc::layer_t = doc::layer_t(0)"
+ },
+ "document.tiled": {
+  "mode": "filters::TiledMode = filters::TiledMode::NONE"
+ },
+ "document.symmetry": {
+  "mode": "SymmetryMode = SymmetryMode::NONE",
+  "x_axis": "double = 0",
+  "y_axis": "double = 0"
+ },
+ "document.grid": {
+  "snap": "bool = false",
+  "bounds": "gfx::Rect = doc::Sprite::DefaultGridBounds()",
+  "color": "app::Color = app::Color::fromRgb(0, 0, 255)",
+  "opacity": "int = 160",
+  "auto_opacity": "bool = true"
+ },
+ "document.pixel_grid": {
+  "color": "app::Color = app::Color::fromRgb(200, 200, 200)",
+  "opacity": "int = 160",
+  "auto_opacity": "bool = true"
+ },
+ "document.bg": {
+  "type": "BgType = BgType::CHECKERED_16x16",
+  "size": "gfx::Size = gfx::Size(16, 16)",
+  "zoom": "bool = true",
+  "color1": "app::Color = app::Color::fromRgb(128, 128, 128)",
+  "color2": "app::Color = app::Color::fromRgb(192, 192, 192)"
+ },
+ "document.timeline": {
+  "first_frame": "int = 1"
+ },
+ "document.thumbnails": {
+  "zoom": "double = 1",
+  "enabled": "bool = false",
+  "overlay_enabled": "bool = false",
+  "overlay_size": "int = 5",
+  "scale_up_to_fit": "bool = false"
+ },
+ "document.onionskin": {
+  "active": "bool = false",
+  "prev_frames": "int = 1",
+  "next_frames": "int = 1",
+  "opacity_base": "int = 68",
+  "opacity_step": "int = 28",
+  "type": "OnionskinType = OnionskinType::MERGE",
+  "loop_tag": "bool = true",
+  "current_layer": "bool = false",
+  "position": "render::OnionskinPosition = render::OnionskinPosition::BEHIND"
+ },
+ "document.save_copy": {
+  "filename": "std::string",
+  "resize_scale": "double = 1",
+  "area": "std::string",
+  "layer": "std::string",
+  "layer_index": "int = -1",
+  "frame_tag": "std::string",
+  "ani_dir": "doc::AniDir = doc::AniDir::FORWARD",
+  "apply_pixel_ratio": "bool = false",
+  "for_twitter": "bool = false",
+  "play_subtags": "bool = true",
+  "ignore_empty": "bool = false"
+ },
+ "document.sprite_sheet": {
+  "defined": "bool = false",
+  "type": "app::SpriteSheetType = app::SpriteSheetType::None",
+  "columns": "int = 0",
+  "rows": "int = 0",
+  "width": "int = 0",
+  "height": "int = 0",
+  "texture_filename": "std::string",
+  "data_filename": "std::string",
+  "data_format": "SpriteSheetDataFormat = SpriteSheetDataFormat::Default",
+  "filename_format": "std::string",
+  "tagname_format": "std::string",
+  "border_padding": "int = 0",
+  "shape_padding": "int = 0",
+  "inner_padding": "int = 0",
+  "trim_sprite": "bool = false",
+  "trim": "bool = false",
+  "trim_by_grid": "bool = false",
+  "extrude": "bool = false",
+  "merge_duplicates": "bool = false",
+  "ignore_empty": "bool = false",
+  "power_of_two_size": "bool = false",
+  "open_generated": "bool = false",
+  "layer": "std::string",
+  "layer_index": "int = -1",
+  "frame_tag": "std::string",
+  "split_layers": "bool = false",
+  "split_tags": "bool = false",
+  "split_grid": "bool = false",
+  "list_layers": "bool = true",
+  "list_frame_tags": "bool = true",
+  "list_slices": "bool = true"
+ },
+ "document.import_sprite_sheet": {
+  "type": "app::SpriteSheetType = app::SpriteSheetType::Rows",
+  "bounds": "gfx::Rect = gfx::Rect(0, 0, 0, 0)",
+  "padding_enabled": "bool = false",
+  "padding_bounds": "gfx::Size = gfx::Size(0, 0)",
+  "partial_tiles": "bool = false"
+ },
+ "document.preview": {
+  "zoom": "double = 1.0",
+  "scroll": "gfx::Point",
+  "auto_scroll": "bool = true"
+ },
+ "document.show": {
+  "layer_edges": "bool = false",
+  "selection_edges": "bool = true",
+  "grid": "bool = false",
+  "pixel_grid": "bool = false",
+  "brush_preview": "bool = true",
+  "slices": "bool = true",
+  "auto_guides": "bool = true",
+  "tile_numbers": "bool = true"
+ }
+}

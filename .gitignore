@@ -1,0 +1,9 @@
+node_modules/
+dist/
+# Aseprite source, its build and Skia: Aseprite's EULA does not allow redistribution.
+aseprite/
+deps/
+# Local Claude Code registration with machine-specific paths.
+.mcp.json
+*.log
+*.tgz

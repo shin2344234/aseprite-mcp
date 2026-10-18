@@ -1,0 +1,15 @@
+{
+  "name": "aseprite-mcp-bridge",
+  "displayName": "Aseprite MCP Bridge",
+  "description": "Lets the aseprite-mcp server control this Aseprite window over a local WebSocket.",
+  "version": "0.1.0",
+  "author": { "name": "Seth" },
+  "publisher": "seth",
+  "license": "MIT",
+  "categories": ["Scripts"],
+  "contributes": {
+    "scripts": [
+      { "path": "./plugin.lua" }
+    ]
+  }
+}

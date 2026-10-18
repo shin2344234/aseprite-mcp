@@ -1,0 +1,2675 @@
+[
+ {
+  "name": "About",
+  "params": [],
+  "source": "src/app/commands/cmd_about.cpp",
+  "requiresUI": true,
+  "description": "Opens the About Aseprite window"
+ },
+ {
+  "name": "AddColor",
+  "params": [
+   {
+    "name": "source",
+    "type": "AddColorSource",
+    "default": "AddColorSource::Color"
+   },
+   {
+    "name": "color",
+    "type": "app::Color",
+    "default": "app::Color::fromMask()"
+   }
+  ],
+  "source": "src/app/commands/cmd_add_color.cpp",
+  "description": "Adds a new color to the palette."
+ },
+ {
+  "name": "AdvancedMode",
+  "params": [],
+  "source": "src/app/commands/cmd_advanced_mode.cpp",
+  "requiresUI": true,
+  "description": "Toggles the application's \"Advanced Mode\""
+ },
+ {
+  "name": "Apply",
+  "params": [],
+  "source": "src/app/commands/apply.cpp"
+ },
+ {
+  "name": "AutocropSprite",
+  "params": [
+   {
+    "name": "x",
+    "type": "int"
+   },
+   {
+    "name": "y",
+    "type": "int"
+   },
+   {
+    "name": "width",
+    "type": "int"
+   },
+   {
+    "name": "height",
+    "type": "int"
+   },
+   {
+    "name": "byGrid",
+    "type": "bool"
+   }
+  ],
+  "source": "src/app/commands/cmd_crop.cpp"
+ },
+ {
+  "name": "BackgroundFromLayer",
+  "params": [],
+  "source": "src/app/commands/cmd_background_from_layer.cpp",
+  "description": "Equivalent to using Convert To -> Background in the Layer's context menu"
+ },
+ {
+  "name": "BrightnessContrast",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "channels",
+    "type": "filters::Target",
+    "default": "0"
+   },
+   {
+    "name": "brightness",
+    "type": "double",
+    "default": "0.0"
+   },
+   {
+    "name": "contrast",
+    "type": "double",
+    "default": "0.0"
+   }
+  ],
+  "source": "src/app/commands/filters/cmd_brightness_contrast.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "Cancel",
+  "params": [
+   {
+    "name": "type",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_cancel.cpp",
+  "description": "Equivalent to pressing the Esc key"
+ },
+ {
+  "name": "CanvasSize",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "left",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "right",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "top",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "bottom",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "bounds",
+    "type": "gfx::Rect",
+    "default": "gfx::Rect(0, 0, 0, 0)"
+   },
+   {
+    "name": "trimOutside",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/cmd_canvas_size.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "CelOpacity",
+  "params": [
+   {
+    "name": "opacity",
+    "type": "int"
+   }
+  ],
+  "source": "src/app/commands/cmd_cel_opacity.cpp",
+  "description": "Changes the opacity of the active Cel"
+ },
+ {
+  "name": "CelProperties",
+  "params": [],
+  "source": "src/app/commands/cmd_cel_properties.cpp",
+  "requiresUI": true,
+  "description": "Shows the Properties dialog for the active Cel"
+ },
+ {
+  "name": "ChangeBrush",
+  "params": [
+   {
+    "name": "slot",
+    "type": "int"
+   },
+   {
+    "name": "change",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_change_brush.cpp",
+  "requiresUI": true,
+  "description": "Changes the brush of the active tool"
+ },
+ {
+  "name": "ChangeColor",
+  "params": [
+   {
+    "name": "target",
+    "type": "string"
+   },
+   {
+    "name": "change",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_change_color.cpp",
+  "requiresUI": true,
+  "description": "Changes the current foreground or background color"
+ },
+ {
+  "name": "ChangePixelFormat",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "colorMode",
+    "type": "ColorMode",
+    "default": "ColorMode::RGB",
+    "aliases": [
+     "format"
+    ]
+   },
+   {
+    "name": "dithering",
+    "type": "render::DitheringAlgorithm",
+    "default": "render::DitheringAlgorithm::None"
+   },
+   {
+    "name": "ditheringMatrix",
+    "type": "std::string",
+    "default": "\"\"",
+    "aliases": [
+     "dithering-matrix"
+    ]
+   },
+   {
+    "name": "ditheringFactor",
+    "type": "double",
+    "default": "1.0",
+    "aliases": [
+     "dithering-factor"
+    ]
+   },
+   {
+    "name": "rgbmap",
+    "type": "doc::RgbMapAlgorithm",
+    "default": "RgbMapAlgorithm::DEFAULT"
+   },
+   {
+    "name": "toGray",
+    "type": "gen::ToGrayAlgorithm",
+    "default": "gen::ToGrayAlgorithm::DEFAULT"
+   },
+   {
+    "name": "fitCriteria",
+    "type": "doc::FitCriteria",
+    "default": "doc::FitCriteria::DEFAULT"
+   }
+  ],
+  "source": "src/app/commands/cmd_change_pixel_format.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "Clear",
+  "params": [],
+  "source": "src/app/commands/cmd_clear.cpp",
+  "description": "Clear the current active document"
+ },
+ {
+  "name": "ClearCel",
+  "params": [],
+  "source": "src/app/commands/cmd_clear_cel.cpp",
+  "description": "Clear the active cel in unlocked layers"
+ },
+ {
+  "name": "ClearRecentFiles",
+  "params": [],
+  "source": "src/app/commands/cmd_clear_recent_files.cpp",
+  "description": "Clear the recent files list"
+ },
+ {
+  "name": "CloseAllFiles",
+  "params": [
+   {
+    "name": "quitting",
+    "type": "bool"
+   }
+  ],
+  "source": "src/app/commands/cmd_close_file.cpp",
+  "requiresUI": true,
+  "description": "Close all open files"
+ },
+ {
+  "name": "CloseFile",
+  "params": [
+   {
+    "name": "quitting",
+    "type": "bool"
+   }
+  ],
+  "source": "src/app/commands/cmd_close_file.cpp",
+  "requiresUI": true,
+  "description": "Close the active file"
+ },
+ {
+  "name": "ColorCurve",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "channels",
+    "type": "filters::Target",
+    "default": "0"
+   },
+   {
+    "name": "curve",
+    "type": "filters::ColorCurve",
+    "default": "filters::ColorCurve()"
+   }
+  ],
+  "source": "src/app/commands/filters/cmd_color_curve.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "ColorQuantization",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "withAlpha",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "maxColors",
+    "type": "int",
+    "default": "256"
+   },
+   {
+    "name": "useRange",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "algorithm",
+    "type": "RgbMapAlgorithm",
+    "default": "RgbMapAlgorithm::DEFAULT"
+   }
+  ],
+  "source": "src/app/commands/cmd_color_quantization.cpp",
+  "hasUiParam": true,
+  "description": "Creates a palette from the current sprite"
+ },
+ {
+  "name": "ContiguousFill",
+  "params": [],
+  "source": "src/app/commands/cmd_contiguous_fill.cpp",
+  "description": "Changes the current tool to Contiguous Fill"
+ },
+ {
+  "name": "ConvertLayer",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "to",
+    "type": "ConvertLayerParam",
+    "default": "ConvertLayerParam::None"
+   }
+  ],
+  "source": "src/app/commands/convert_layer.cpp"
+ },
+ {
+  "name": "ConvolutionMatrix",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "channels",
+    "type": "filters::Target",
+    "default": "0"
+   },
+   {
+    "name": "tiledMode",
+    "type": "filters::TiledMode",
+    "default": "filters::TiledMode::NONE"
+   },
+   {
+    "name": "fromResource",
+    "type": "std::string",
+    "default": "std::string()"
+   }
+  ],
+  "source": "src/app/commands/filters/cmd_convolution_matrix.cpp",
+  "hasUiParam": true,
+  "description": "Select and apply a convolution matrix to the image"
+ },
+ {
+  "name": "Copy",
+  "params": [],
+  "source": "src/app/commands/cmd_copy.cpp",
+  "description": "Performs a copy command on the current selection"
+ },
+ {
+  "name": "CopyCel",
+  "params": [],
+  "source": "src/app/commands/cmd_copy_cel.cpp"
+ },
+ {
+  "name": "CopyColors",
+  "params": [
+   {
+    "name": "before",
+    "type": "int",
+    "default": "0"
+   }
+  ],
+  "source": "src/app/commands/move_colors_command.cpp"
+ },
+ {
+  "name": "CopyMerged",
+  "params": [],
+  "source": "src/app/commands/cmd_copy_merged.cpp",
+  "description": "Copies the active sprite as a merged image to the clipboard"
+ },
+ {
+  "name": "CopyPath",
+  "params": [],
+  "source": "src/app/commands/copy_path.cpp"
+ },
+ {
+  "name": "CopyTiles",
+  "params": [
+   {
+    "name": "before",
+    "type": "int",
+    "default": "0"
+   }
+  ],
+  "source": "src/app/commands/move_tiles_command.cpp"
+ },
+ {
+  "name": "CropSprite",
+  "params": [
+   {
+    "name": "x",
+    "type": "int"
+   },
+   {
+    "name": "y",
+    "type": "int"
+   },
+   {
+    "name": "width",
+    "type": "int"
+   },
+   {
+    "name": "height",
+    "type": "int"
+   },
+   {
+    "name": "byGrid",
+    "type": "bool"
+   }
+  ],
+  "source": "src/app/commands/cmd_crop.cpp"
+ },
+ {
+  "name": "Cut",
+  "params": [],
+  "source": "src/app/commands/cmd_cut.cpp",
+  "description": "Performs a cut command on the current selection"
+ },
+ {
+  "name": "DeselectMask",
+  "params": [],
+  "source": "src/app/commands/cmd_deselect_mask.cpp",
+  "description": "Deselects the current mask"
+ },
+ {
+  "name": "Despeckle",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "channels",
+    "type": "filters::Target",
+    "default": "0"
+   },
+   {
+    "name": "width",
+    "type": "int",
+    "default": "3"
+   },
+   {
+    "name": "height",
+    "type": "int",
+    "default": "3"
+   },
+   {
+    "name": "tiledMode",
+    "type": "filters::TiledMode",
+    "default": "filters::TiledMode::NONE"
+   }
+  ],
+  "source": "src/app/commands/filters/cmd_despeckle.cpp",
+  "hasUiParam": true,
+  "description": "Applies median blur"
+ },
+ {
+  "name": "DiscardBrush",
+  "params": [],
+  "source": "src/app/commands/cmd_discard_brush.cpp",
+  "requiresUI": true,
+  "description": "Discard the active brush"
+ },
+ {
+  "name": "DuplicateLayer",
+  "params": [],
+  "source": "src/app/commands/cmd_duplicate_layer.cpp",
+  "description": "Duplicate the currently selected layer"
+ },
+ {
+  "name": "DuplicateSlice",
+  "params": [
+   {
+    "name": "id",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_duplicate_slice.cpp"
+ },
+ {
+  "name": "DuplicateSprite",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "filename",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "flatten",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/cmd_duplicate_sprite.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "DuplicateView",
+  "params": [],
+  "source": "src/app/commands/cmd_duplicate_view.cpp",
+  "requiresUI": true,
+  "description": "Duplicates the current workspace view"
+ },
+ {
+  "name": "Exit",
+  "params": [],
+  "source": "src/app/commands/cmd_exit.cpp",
+  "requiresUI": true,
+  "description": "Instructs Aseprite to exit, the user will be prompted to save if any files are modified and it can be canceled"
+ },
+ {
+  "name": "ExportSpriteSheet",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "recent",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "askOverwrite",
+    "type": "bool",
+    "default": "true",
+    "aliases": [
+     "ask-overwrite"
+    ]
+   },
+   {
+    "name": "type",
+    "type": "app::SpriteSheetType",
+    "default": "app::SpriteSheetType::None"
+   },
+   {
+    "name": "columns",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "rows",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "width",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "height",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "textureFilename",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "dataFilename",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "dataFormat",
+    "type": "SpriteSheetDataFormat",
+    "default": "SpriteSheetDataFormat::Default"
+   },
+   {
+    "name": "filenameFormat",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "tagnameFormat",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "borderPadding",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "shapePadding",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "innerPadding",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "trimSprite",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "trim",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "trimByGrid",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "extrude",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "ignoreEmpty",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "mergeDuplicates",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "powerOfTwoSize",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "openGenerated",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "layer",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "_layerIndex",
+    "type": "int",
+    "default": "-1"
+   },
+   {
+    "name": "tag",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "splitLayers",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "splitTags",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "splitGrid",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "listLayers",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "listTags",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "listSlices",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "fromTilesets",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/cmd_export_sprite_sheet.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "ExportTileset",
+  "params": [],
+  "source": "src/app/commands/export_tileset.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "Eyedropper",
+  "params": [
+   {
+    "name": "target",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_eyedropper.cpp",
+  "description": "Grabs the color under the current mouse position with the Eyedropper tool"
+ },
+ {
+  "name": "Fill",
+  "params": [],
+  "source": "src/app/commands/cmd_fill_and_stroke.cpp",
+  "description": "Performs a foreground color fill on the current selection mask"
+ },
+ {
+  "name": "FitScreen",
+  "params": [],
+  "source": "src/app/commands/cmd_fit_screen.cpp",
+  "requiresUI": true,
+  "description": "Resets the zoom on the current view to fit the screen"
+ },
+ {
+  "name": "FlattenLayers",
+  "params": [
+   {
+    "name": "visibleOnly",
+    "type": "bool"
+   }
+  ],
+  "source": "src/app/commands/cmd_flatten_layers.cpp"
+ },
+ {
+  "name": "Flip",
+  "params": [
+   {
+    "name": "target",
+    "type": "string"
+   },
+   {
+    "name": "orientation",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_flip.cpp"
+ },
+ {
+  "name": "FrameProperties",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_frame_properties.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "FrameTagProperties",
+  "params": [
+   {
+    "name": "name",
+    "type": "string"
+   },
+   {
+    "name": "id",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_frame_tag_properties.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "FullscreenMode",
+  "params": [],
+  "source": "src/app/commands/cmd_fullscreen_mode.cpp"
+ },
+ {
+  "name": "FullscreenPreview",
+  "params": [],
+  "source": "src/app/commands/cmd_fullscreen_preview.cpp",
+  "requiresUI": true,
+  "description": "Opens the full screen preview"
+ },
+ {
+  "name": "GotoFirstFrame",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_goto_frame.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoFirstFrameInTag",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_goto_frame.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoFrame",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_goto_frame.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoLastFrame",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_goto_frame.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoLastFrameInTag",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_goto_frame.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoNextFrame",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_goto_frame.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoNextFrameWithSameTag",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_goto_frame.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoNextLayer",
+  "params": [],
+  "source": "src/app/commands/cmd_goto_layer.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoNextTab",
+  "params": [],
+  "source": "src/app/commands/cmd_goto_tab.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoPreviousFrame",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_goto_frame.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoPreviousFrameWithSameTag",
+  "params": [
+   {
+    "name": "frame",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_goto_frame.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoPreviousLayer",
+  "params": [],
+  "source": "src/app/commands/cmd_goto_layer.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GotoPreviousTab",
+  "params": [],
+  "source": "src/app/commands/cmd_goto_tab.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "GridSettings",
+  "params": [],
+  "source": "src/app/commands/cmd_grid.cpp",
+  "requiresUI": true,
+  "description": "Opens the grid settings window"
+ },
+ {
+  "name": "Home",
+  "params": [],
+  "source": "src/app/commands/cmd_home.cpp",
+  "requiresUI": true,
+  "description": "Opens the Home tab"
+ },
+ {
+  "name": "HueSaturation",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "channels",
+    "type": "filters::Target",
+    "default": "0"
+   },
+   {
+    "name": "mode",
+    "type": "Mode",
+    "default": "Mode::HSL_MUL"
+   },
+   {
+    "name": "hue",
+    "type": "double",
+    "default": "0.0"
+   },
+   {
+    "name": "saturation",
+    "type": "double",
+    "default": "0.0"
+   },
+   {
+    "name": "lightness",
+    "type": "double",
+    "default": "0.0",
+    "aliases": [
+     "value"
+    ]
+   },
+   {
+    "name": "alpha",
+    "type": "double",
+    "default": "0.0"
+   }
+  ],
+  "source": "src/app/commands/filters/cmd_hue_saturation.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "ImportSpriteSheet",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "type",
+    "type": "app::SpriteSheetType",
+    "default": "app::SpriteSheetType::None"
+   },
+   {
+    "name": "frameBounds",
+    "type": "gfx::Rect",
+    "default": "gfx::Rect(0, 0, 0, 0)"
+   },
+   {
+    "name": "padding",
+    "type": "gfx::Size",
+    "default": "gfx::Size(0, 0)"
+   },
+   {
+    "name": "partialTiles",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "columns",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "rows",
+    "type": "int",
+    "default": "0"
+   }
+  ],
+  "source": "src/app/commands/cmd_import_sprite_sheet.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "InvertColor",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "channels",
+    "type": "filters::Target",
+    "default": "0"
+   }
+  ],
+  "source": "src/app/commands/filters/cmd_invert_color.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "InvertMask",
+  "params": [],
+  "source": "src/app/commands/cmd_invert_mask.cpp",
+  "description": "Inverts the current selection mask, or if there is none, selects all"
+ },
+ {
+  "name": "KeyboardShortcuts",
+  "params": [
+   {
+    "name": "search",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_keyboard_shortcuts.cpp",
+  "requiresUI": true,
+  "description": "Opens the keyboard shortcut menu, use the `search` parameter to pre-fill the searchbar"
+ },
+ {
+  "name": "Launch",
+  "params": [
+   {
+    "name": "path",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_launch.cpp",
+  "description": "Opens the given `path` in the desktop web browser as relative path to aseprite.org or a full URL"
+ },
+ {
+  "name": "LayerFromBackground",
+  "params": [],
+  "source": "src/app/commands/cmd_layer_from_background.cpp",
+  "description": "Converts the active background layer to a regular layer"
+ },
+ {
+  "name": "LayerLock",
+  "params": [],
+  "source": "src/app/commands/cmd_layer_lock.cpp",
+  "description": "Toggles the lock of active layers"
+ },
+ {
+  "name": "LayerOpacity",
+  "params": [
+   {
+    "name": "opacity",
+    "type": "int"
+   }
+  ],
+  "source": "src/app/commands/cmd_layer_opacity.cpp"
+ },
+ {
+  "name": "LayerProperties",
+  "params": [],
+  "source": "src/app/commands/cmd_layer_properties.cpp",
+  "requiresUI": true,
+  "description": "Opens the Layer property window for the active layer"
+ },
+ {
+  "name": "LayerVisibility",
+  "params": [],
+  "source": "src/app/commands/cmd_layer_visibility.cpp",
+  "description": "Toggles the visibility of the active layer"
+ },
+ {
+  "name": "LinkCels",
+  "params": [],
+  "source": "src/app/commands/cmd_link_cels.cpp",
+  "description": "Links the selected cels together"
+ },
+ {
+  "name": "LoadMask",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool"
+   },
+   {
+    "name": "filename",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_load_mask.cpp",
+  "hasUiParam": true,
+  "description": "Loads a selection from file"
+ },
+ {
+  "name": "LoadPalette",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool"
+   },
+   {
+    "name": "preset",
+    "type": "string"
+   },
+   {
+    "name": "filename",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_load_palette.cpp",
+  "hasUiParam": true,
+  "description": "Loads a palette from file"
+ },
+ {
+  "name": "MaskAll",
+  "params": [],
+  "source": "src/app/commands/cmd_mask_all.cpp",
+  "description": "Selects all"
+ },
+ {
+  "name": "MaskByColor",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "color",
+    "type": "app::Color",
+    "default": "app::Color()"
+   },
+   {
+    "name": "tolerance",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "mode",
+    "type": "gen::SelectionMode",
+    "default": "gen::SelectionMode::DEFAULT"
+   }
+  ],
+  "source": "src/app/commands/cmd_mask_by_color.cpp",
+  "hasUiParam": true,
+  "description": "Creates a new selection by color"
+ },
+ {
+  "name": "MaskContent",
+  "params": [],
+  "source": "src/app/commands/cmd_mask_content.cpp",
+  "description": "Selects the content from the active sprite (like autocrop)"
+ },
+ {
+  "name": "MergeDownLayer",
+  "params": [],
+  "source": "src/app/commands/cmd_merge_down_layer.cpp",
+  "description": "Merges the active layer down"
+ },
+ {
+  "name": "ModifySelection",
+  "params": [
+   {
+    "name": "quantity",
+    "type": "int"
+   },
+   {
+    "name": "ui",
+    "type": "bool"
+   },
+   {
+    "name": "modifier",
+    "type": "string"
+   },
+   {
+    "name": "brush",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_modify_selection.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "MoveCel",
+  "params": [],
+  "source": "src/app/commands/cmd_move_cel.cpp",
+  "requiresUI": true,
+  "description": "Finishes the move operation of a cel in the timeline"
+ },
+ {
+  "name": "MoveColors",
+  "params": [
+   {
+    "name": "before",
+    "type": "int",
+    "default": "0"
+   }
+  ],
+  "source": "src/app/commands/move_colors_command.cpp"
+ },
+ {
+  "name": "MoveMask",
+  "params": [
+   {
+    "name": "wrap",
+    "type": "bool"
+   },
+   {
+    "name": "quantity",
+    "type": "int"
+   },
+   {
+    "name": "target",
+    "type": "string"
+   },
+   {
+    "name": "direction",
+    "type": "string"
+   },
+   {
+    "name": "units",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_move_mask.cpp",
+  "description": "Moves the selection boundaries or its content (pixels)."
+ },
+ {
+  "name": "MoveTiles",
+  "params": [
+   {
+    "name": "before",
+    "type": "int",
+    "default": "0"
+   }
+  ],
+  "source": "src/app/commands/move_tiles_command.cpp"
+ },
+ {
+  "name": "NewBrush",
+  "params": [],
+  "source": "src/app/commands/cmd_new_brush.cpp",
+  "requiresUI": true,
+  "description": "Create a new brush from the current selection/editor"
+ },
+ {
+  "name": "NewFile",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "width",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "height",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "colorMode",
+    "type": "ColorMode",
+    "default": "ColorMode::RGB"
+   },
+   {
+    "name": "fromClipboard",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "fromDraggedData",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/cmd_new_file.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "NewFrame",
+  "params": [
+   {
+    "name": "content",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_new_frame.cpp"
+ },
+ {
+  "name": "NewFrameTag",
+  "params": [],
+  "source": "src/app/commands/cmd_new_frame_tag.cpp",
+  "requiresUI": true,
+  "description": "Shows the New Tag dialog for the selected frame range"
+ },
+ {
+  "name": "NewLayer",
+  "params": [
+   {
+    "name": "name",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "group",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "reference",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "tilemap",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "type",
+    "type": "std::string",
+    "default": "{}"
+   },
+   {
+    "name": "gridBounds",
+    "type": "gfx::Rect",
+    "default": "gfx::Rect()"
+   },
+   {
+    "name": "ask",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "fromFile",
+    "type": "bool",
+    "default": "false",
+    "aliases": [
+     "from-file"
+    ]
+   },
+   {
+    "name": "fromClipboard",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "viaCut",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "viaCopy",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "top",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "before",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/cmd_new_layer.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "NewSpriteFromSelection",
+  "params": [],
+  "source": "src/app/commands/cmd_new_sprite_from_selection.cpp",
+  "description": "Creates a new sprite from the current selection mask"
+ },
+ {
+  "name": "OpenBrowser",
+  "params": [
+   {
+    "name": "filename",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_open_browser.cpp",
+  "requiresUI": true,
+  "description": "Open the given `filename` in the internal text browser"
+ },
+ {
+  "name": "OpenFile",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool"
+   },
+   {
+    "name": "repeat_checkbox",
+    "type": "bool"
+   },
+   {
+    "name": "oneframe",
+    "type": "bool"
+   },
+   {
+    "name": "filename",
+    "type": "string"
+   },
+   {
+    "name": "folder",
+    "type": "string"
+   },
+   {
+    "name": "sequence",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_open_file.cpp"
+ },
+ {
+  "name": "OpenGroup",
+  "params": [],
+  "source": "src/app/commands/cmd_open_group.cpp",
+  "description": "Opens the active layer group"
+ },
+ {
+  "name": "OpenInFolder",
+  "params": [],
+  "source": "src/app/commands/cmd_open_in_folder.cpp",
+  "description": "Opens the folder of the active sprite in the file explorer"
+ },
+ {
+  "name": "OpenWithApp",
+  "params": [],
+  "source": "src/app/commands/cmd_open_with_app.cpp",
+  "description": "Opens the active sprite with the native app assigned to the format"
+ },
+ {
+  "name": "Options",
+  "params": [
+   {
+    "name": "installExtension",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_options.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "Outline",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "channels",
+    "type": "filters::Target",
+    "default": "0"
+   },
+   {
+    "name": "place",
+    "type": "filters::OutlineFilter::Place",
+    "default": "OutlineFilter::Place::Outside"
+   },
+   {
+    "name": "matrix",
+    "type": "filters::OutlineFilter::Matrix",
+    "default": "OutlineFilter::Matrix::Circle"
+   },
+   {
+    "name": "color",
+    "type": "app::Color",
+    "default": "app::Color()"
+   },
+   {
+    "name": "bgColor",
+    "type": "app::Color",
+    "default": "app::Color()"
+   },
+   {
+    "name": "tiledMode",
+    "type": "filters::TiledMode",
+    "default": "filters::TiledMode::NONE"
+   }
+  ],
+  "source": "src/app/commands/filters/cmd_outline.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "PaletteEditor",
+  "params": [
+   {
+    "name": "switch",
+    "type": "bool"
+   },
+   {
+    "name": "edit",
+    "type": "string"
+   },
+   {
+    "name": "popup",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_palette_editor.cpp",
+  "requiresUI": true,
+  "description": "Show the palette editor popup"
+ },
+ {
+  "name": "PaletteSize",
+  "params": [
+   {
+    "name": "size",
+    "type": "int"
+   },
+   {
+    "name": "ui",
+    "type": "bool"
+   }
+  ],
+  "source": "src/app/commands/cmd_palette_size.cpp",
+  "hasUiParam": true,
+  "description": "Changes the palette size"
+ },
+ {
+  "name": "Paste",
+  "params": [
+   {
+    "name": "x",
+    "type": "int"
+   },
+   {
+    "name": "y",
+    "type": "int"
+   }
+  ],
+  "source": "src/app/commands/cmd_paste.cpp",
+  "description": "Pastes the clipboard into the current active sprite/selection, at coordinates `x` and `y` (if given)"
+ },
+ {
+  "name": "PasteText",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "color",
+    "type": "app::Color",
+    "default": "app::Color::fromMask()"
+   },
+   {
+    "name": "text",
+    "type": "std::string",
+    "default": "\"\""
+   },
+   {
+    "name": "fontName",
+    "type": "std::string",
+    "default": "\"Aseprite\""
+   },
+   {
+    "name": "fontSize",
+    "type": "double",
+    "default": "6"
+   },
+   {
+    "name": "x",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "y",
+    "type": "int",
+    "default": "0"
+   }
+  ],
+  "source": "src/app/commands/cmd_paste_text.cpp",
+  "requiresUI": true,
+  "description": "Opens the Insert Text dialog"
+ },
+ {
+  "name": "PixelPerfectMode",
+  "params": [],
+  "source": "src/app/commands/cmd_pixel_perfect_mode.cpp",
+  "description": "Toggles the \"pixel perfect\" freehand algorithm"
+ },
+ {
+  "name": "PlayAnimation",
+  "params": [],
+  "source": "src/app/commands/cmd_play_animation.cpp",
+  "requiresUI": true,
+  "description": "Plays the sprite's animation, if any"
+ },
+ {
+  "name": "PlayPreviewAnimation",
+  "params": [],
+  "source": "src/app/commands/cmd_play_animation.cpp",
+  "requiresUI": true,
+  "description": "Plays the animation in the preview window (enables it if it's not visible)"
+ },
+ {
+  "name": "Redo",
+  "params": [],
+  "source": "src/app/commands/cmd_undo.cpp",
+  "description": "Equivalent to `app.redo()`"
+ },
+ {
+  "name": "Refresh",
+  "params": [],
+  "source": "src/app/commands/cmd_refresh.cpp",
+  "requiresUI": true,
+  "description": "Refreshes the user interface"
+ },
+ {
+  "name": "Register",
+  "params": [],
+  "source": "src/app/commands/cmd_enter_license.cpp"
+ },
+ {
+  "name": "RemoveFrame",
+  "params": [],
+  "source": "src/app/commands/cmd_remove_frame.cpp",
+  "description": "Remove the selected or the current active frame(s) (only if there's more 1 frame total)"
+ },
+ {
+  "name": "RemoveFrameTag",
+  "params": [
+   {
+    "name": "name",
+    "type": "string"
+   },
+   {
+    "name": "id",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_remove_frame_tag.cpp",
+  "description": "Remove a tag by the given `name` or object `id`"
+ },
+ {
+  "name": "RemoveLayer",
+  "params": [],
+  "source": "src/app/commands/cmd_remove_layer.cpp",
+  "description": "Remove the selected or current active layer(s) (only if there's more than 1 layer total)"
+ },
+ {
+  "name": "RemoveSlice",
+  "params": [
+   {
+    "name": "name",
+    "type": "string"
+   },
+   {
+    "name": "id",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_remove_slice.cpp",
+  "description": "Remove a slice by `name` or object `id`"
+ },
+ {
+  "name": "ReopenClosedFile",
+  "params": [],
+  "source": "src/app/commands/cmd_reopen_closed_file.cpp"
+ },
+ {
+  "name": "RepeatLastExport",
+  "params": [],
+  "source": "src/app/commands/cmd_repeat_last_export.cpp",
+  "hasUiParam": true,
+  "description": "Redoes the last export command"
+ },
+ {
+  "name": "ReplaceColor",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "channels",
+    "type": "filters::Target",
+    "default": "0"
+   },
+   {
+    "name": "from",
+    "type": "app::Color",
+    "default": "app::Color()"
+   },
+   {
+    "name": "to",
+    "type": "app::Color",
+    "default": "app::Color()"
+   },
+   {
+    "name": "tolerance",
+    "type": "int",
+    "default": "0"
+   }
+  ],
+  "source": "src/app/commands/filters/cmd_replace_color.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "ReselectMask",
+  "params": [],
+  "source": "src/app/commands/cmd_reselect_mask.cpp",
+  "description": "Re-selects a hidden selection mask"
+ },
+ {
+  "name": "ReverseFrames",
+  "params": [],
+  "source": "src/app/commands/cmd_reverse_frames.cpp",
+  "description": "Reverses frames (only if there are 2 or more in the selected range)"
+ },
+ {
+  "name": "Rotate",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool"
+   },
+   {
+    "name": "target",
+    "type": "string"
+   },
+   {
+    "name": "angle",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_rotate.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "RunCommand",
+  "params": [],
+  "source": "src/app/commands/cmd_run_command.cpp"
+ },
+ {
+  "name": "SaveFile",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true",
+    "aliases": [
+     "useUI"
+    ]
+   },
+   {
+    "name": "recent",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "filename",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "filenameFormat",
+    "type": "std::string",
+    "default": "std::string()",
+    "aliases": [
+     "filename-format"
+    ]
+   },
+   {
+    "name": "tag",
+    "type": "std::string",
+    "default": "std::string()",
+    "aliases": [
+     "frame-tag"
+    ]
+   },
+   {
+    "name": "aniDir",
+    "type": "doc::AniDir",
+    "default": "doc::AniDir::FORWARD",
+    "aliases": [
+     "ani-dir"
+    ]
+   },
+   {
+    "name": "slice",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "fromFrame",
+    "type": "doc::frame_t",
+    "default": "0",
+    "aliases": [
+     "from-frame"
+    ]
+   },
+   {
+    "name": "toFrame",
+    "type": "doc::frame_t",
+    "default": "0",
+    "aliases": [
+     "to-frame"
+    ]
+   },
+   {
+    "name": "ignoreEmpty",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "scale",
+    "type": "double",
+    "default": "1.0"
+   },
+   {
+    "name": "bounds",
+    "type": "gfx::Rect",
+    "default": "gfx::Rect()"
+   },
+   {
+    "name": "playSubtags",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/cmd_save_file.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "SaveFileAs",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true",
+    "aliases": [
+     "useUI"
+    ]
+   },
+   {
+    "name": "recent",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "filename",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "filenameFormat",
+    "type": "std::string",
+    "default": "std::string()",
+    "aliases": [
+     "filename-format"
+    ]
+   },
+   {
+    "name": "tag",
+    "type": "std::string",
+    "default": "std::string()",
+    "aliases": [
+     "frame-tag"
+    ]
+   },
+   {
+    "name": "aniDir",
+    "type": "doc::AniDir",
+    "default": "doc::AniDir::FORWARD",
+    "aliases": [
+     "ani-dir"
+    ]
+   },
+   {
+    "name": "slice",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "fromFrame",
+    "type": "doc::frame_t",
+    "default": "0",
+    "aliases": [
+     "from-frame"
+    ]
+   },
+   {
+    "name": "toFrame",
+    "type": "doc::frame_t",
+    "default": "0",
+    "aliases": [
+     "to-frame"
+    ]
+   },
+   {
+    "name": "ignoreEmpty",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "scale",
+    "type": "double",
+    "default": "1.0"
+   },
+   {
+    "name": "bounds",
+    "type": "gfx::Rect",
+    "default": "gfx::Rect()"
+   },
+   {
+    "name": "playSubtags",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/cmd_save_file.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "SaveFileCopyAs",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true",
+    "aliases": [
+     "useUI"
+    ]
+   },
+   {
+    "name": "recent",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "filename",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "filenameFormat",
+    "type": "std::string",
+    "default": "std::string()",
+    "aliases": [
+     "filename-format"
+    ]
+   },
+   {
+    "name": "tag",
+    "type": "std::string",
+    "default": "std::string()",
+    "aliases": [
+     "frame-tag"
+    ]
+   },
+   {
+    "name": "aniDir",
+    "type": "doc::AniDir",
+    "default": "doc::AniDir::FORWARD",
+    "aliases": [
+     "ani-dir"
+    ]
+   },
+   {
+    "name": "slice",
+    "type": "std::string",
+    "default": "std::string()"
+   },
+   {
+    "name": "fromFrame",
+    "type": "doc::frame_t",
+    "default": "0",
+    "aliases": [
+     "from-frame"
+    ]
+   },
+   {
+    "name": "toFrame",
+    "type": "doc::frame_t",
+    "default": "0",
+    "aliases": [
+     "to-frame"
+    ]
+   },
+   {
+    "name": "ignoreEmpty",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "scale",
+    "type": "double",
+    "default": "1.0"
+   },
+   {
+    "name": "bounds",
+    "type": "gfx::Rect",
+    "default": "gfx::Rect()"
+   },
+   {
+    "name": "playSubtags",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/cmd_save_file.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "SaveMask",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "filename",
+    "type": "std::string",
+    "default": "\"default.msk\""
+   }
+  ],
+  "source": "src/app/commands/cmd_save_mask.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "SavePalette",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "filename",
+    "type": "std::string",
+    "default": "\"\""
+   },
+   {
+    "name": "preset",
+    "type": "std::string",
+    "default": "\"\""
+   },
+   {
+    "name": "saveAsPreset",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "columns",
+    "type": "int",
+    "default": "16"
+   }
+  ],
+  "source": "src/app/commands/cmd_save_palette.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "Screenshot",
+  "params": [
+   {
+    "name": "save",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "srgb",
+    "type": "bool",
+    "default": "true"
+   },
+   {
+    "name": "steam",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/screenshot.cpp"
+ },
+ {
+  "name": "Scroll",
+  "params": [
+   {
+    "name": "quantity",
+    "type": "int"
+   },
+   {
+    "name": "direction",
+    "type": "string"
+   },
+   {
+    "name": "units",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_scroll.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "ScrollCenter",
+  "params": [],
+  "source": "src/app/commands/cmd_scroll_center.cpp",
+  "hasUiParam": true,
+  "description": "Center the editor viewport"
+ },
+ {
+  "name": "SelectPaletteColors",
+  "params": [
+   {
+    "name": "modifier",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_select_palette.cpp"
+ },
+ {
+  "name": "SelectTile",
+  "params": [
+   {
+    "name": "mode",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_select_tile.cpp",
+  "requiresUI": true,
+  "description": "Select the tile under the mouse, with a selection `mode` ([SelectionMode](selectionmode.md))"
+ },
+ {
+  "name": "SelectionAsGrid",
+  "params": [],
+  "source": "src/app/commands/cmd_grid.cpp",
+  "description": "Set the grid bounds to the current selection mask"
+ },
+ {
+  "name": "SetColorSelector",
+  "params": [
+   {
+    "name": "type",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_set_color_selector.cpp",
+  "requiresUI": true,
+  "description": "Changes the color selector to the `type`: `\"spectrum\"`, `\"tint-shade-tone\"`, `\"rgb-wheel\"`, `\"ryb-wheel\"` or `\"normal-map-wheel\"`"
+ },
+ {
+  "name": "SetInkType",
+  "params": [
+   {
+    "name": "type",
+    "type": "app::tools::InkType",
+    "default": "app::tools::InkType::DEFAULT"
+   }
+  ],
+  "source": "src/app/commands/cmd_set_ink_type.cpp",
+  "requiresUI": true
+ },
+ {
+  "name": "SetLoopSection",
+  "params": [
+   {
+    "name": "action",
+    "type": "string"
+   },
+   {
+    "name": "begin",
+    "type": "string"
+   },
+   {
+    "name": "end",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_set_loop_section.cpp",
+  "description": "Sets the looping property of the given frame range"
+ },
+ {
+  "name": "SetPalette",
+  "params": [],
+  "source": "src/app/commands/cmd_set_palette.cpp"
+ },
+ {
+  "name": "SetPaletteEntrySize",
+  "params": [
+   {
+    "name": "size",
+    "type": "int"
+   }
+  ],
+  "source": "src/app/commands/cmd_set_palette_entry_size.cpp",
+  "requiresUI": true,
+  "description": "Set the palette entry size to the given `size` (defaults to `7`)"
+ },
+ {
+  "name": "SetPlaybackSpeed",
+  "params": [
+   {
+    "name": "multiplier",
+    "type": "double",
+    "default": "1.0"
+   }
+  ],
+  "source": "src/app/commands/set_playback_speed.cpp"
+ },
+ {
+  "name": "SetSameInk",
+  "params": [],
+  "source": "src/app/commands/cmd_set_same_ink.cpp",
+  "description": "Set the same ink for all tools"
+ },
+ {
+  "name": "ShowAutoGuides",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp",
+  "description": "Toggles the \"Show Auto Guides\" preference"
+ },
+ {
+  "name": "ShowBrushPreview",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp",
+  "description": "Toggles the \"Brush Preview\" preference"
+ },
+ {
+  "name": "ShowBrushPreviewInPreview",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp"
+ },
+ {
+  "name": "ShowExtras",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp",
+  "description": "Toggles the \"Show Extras\" preference"
+ },
+ {
+  "name": "ShowGrid",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp",
+  "description": "Toggles the \"Show Grid\" preference"
+ },
+ {
+  "name": "ShowLayerEdges",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp",
+  "description": "Toggles the \"Show Layer Edges\" preference"
+ },
+ {
+  "name": "ShowMenu",
+  "params": [
+   {
+    "name": "menu",
+    "type": "std::string",
+    "default": "\"\""
+   }
+  ],
+  "source": "src/app/commands/show_menu.cpp"
+ },
+ {
+  "name": "ShowOnionSkin",
+  "params": [],
+  "source": "src/app/commands/cmd_onionskin.cpp",
+  "description": "Toggles the \"Onion Skin\" preference"
+ },
+ {
+  "name": "ShowPixelGrid",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp",
+  "description": "Toggles the \"Show Pixel Grid\"  preference"
+ },
+ {
+  "name": "ShowSelectionEdges",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp",
+  "description": "Toggles the \"Show Selection Edges\" preference"
+ },
+ {
+  "name": "ShowSlices",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp",
+  "description": "Toggles the \"Show Slices\" preference"
+ },
+ {
+  "name": "ShowTileNumbers",
+  "params": [],
+  "source": "src/app/commands/cmd_show.cpp"
+ },
+ {
+  "name": "SliceProperties",
+  "params": [
+   {
+    "name": "name",
+    "type": "string"
+   },
+   {
+    "name": "id",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_slice_properties.cpp",
+  "requiresUI": true,
+  "description": "Shows the slice properties window by `name` or `id` parameters, otherwise uses the selected slice(s)"
+ },
+ {
+  "name": "SnapToGrid",
+  "params": [],
+  "source": "src/app/commands/cmd_grid.cpp",
+  "description": "Toggles the snap to grid property"
+ },
+ {
+  "name": "SoloLayer",
+  "params": [
+   {
+    "name": "layerId",
+    "type": "int",
+    "default": "0"
+   }
+  ],
+  "source": "src/app/commands/solo_layer.cpp"
+ },
+ {
+  "name": "SpriteProperties",
+  "params": [],
+  "source": "src/app/commands/cmd_sprite_properties.cpp",
+  "description": "Shows the sprite properties window"
+ },
+ {
+  "name": "SpriteSize",
+  "params": [
+   {
+    "name": "ui",
+    "type": "bool",
+    "default": "true",
+    "aliases": [
+     "use-ui"
+    ]
+   },
+   {
+    "name": "width",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "height",
+    "type": "int",
+    "default": "0"
+   },
+   {
+    "name": "lockRatio",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "scale",
+    "type": "double",
+    "default": "1.0"
+   },
+   {
+    "name": "scaleX",
+    "type": "double",
+    "default": "1.0"
+   },
+   {
+    "name": "scaleY",
+    "type": "double",
+    "default": "1.0"
+   },
+   {
+    "name": "method",
+    "type": "ResizeMethod",
+    "default": "ResizeMethod::RESIZE_METHOD_NEAREST_NEIGHBOR",
+    "aliases": [
+     "resize-method"
+    ]
+   }
+  ],
+  "source": "src/app/commands/cmd_sprite_size.cpp",
+  "hasUiParam": true
+ },
+ {
+  "name": "Stroke",
+  "params": [],
+  "source": "src/app/commands/cmd_fill_and_stroke.cpp",
+  "description": "Performs a foreground color stroke fill on the current selection mask"
+ },
+ {
+  "name": "SwapCheckerboardColors",
+  "params": [],
+  "source": "src/app/commands/cmd_swap_checkerboard_colors.cpp"
+ },
+ {
+  "name": "SwitchColors",
+  "params": [],
+  "source": "src/app/commands/cmd_switch_colors.cpp",
+  "requiresUI": true,
+  "description": "Swaps the current foreground/background colors around"
+ },
+ {
+  "name": "SymmetryMode",
+  "params": [
+   {
+    "name": "orientation",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_symmetry_mode.cpp",
+  "description": "Sets the symmetry mode `orientation` to one of `\"vertical\"`, `\"horizontal\"`, `\"right_diagonal\"` or `\"left_diagonal\"`. Defaults to none, which turns the mode off"
+ },
+ {
+  "name": "TiledMode",
+  "params": [
+   {
+    "name": "axis",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_tiled_mode.cpp",
+  "description": "Sets the tiled to mode `axis` to one of `\"both\"`, `\"x\"` or `\"y\"`. Defaults to none, which turns the mode off"
+ },
+ {
+  "name": "TilesetMode",
+  "params": [
+   {
+    "name": "mode",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/tileset_mode.cpp"
+ },
+ {
+  "name": "Timeline",
+  "params": [
+   {
+    "name": "open",
+    "type": "bool"
+   },
+   {
+    "name": "close",
+    "type": "bool"
+   },
+   {
+    "name": "switch",
+    "type": "bool"
+   }
+  ],
+  "source": "src/app/commands/cmd_timeline.cpp",
+  "requiresUI": true,
+  "description": "Changes the timeline visibility with the parameters `open`, `close` and `switch`"
+ },
+ {
+  "name": "ToggleOtherLayersOpacity",
+  "params": [
+   {
+    "name": "preview",
+    "type": "bool",
+    "default": "false"
+   },
+   {
+    "name": "opacity",
+    "type": "int",
+    "default": "255"
+   },
+   {
+    "name": "checkedIfZero",
+    "type": "bool",
+    "default": "false"
+   }
+  ],
+  "source": "src/app/commands/toggle_other_layers_opacity.cpp"
+ },
+ {
+  "name": "TogglePlayAll",
+  "params": [],
+  "source": "src/app/commands/toggle_play_option.cpp"
+ },
+ {
+  "name": "TogglePlayOnce",
+  "params": [],
+  "source": "src/app/commands/toggle_play_option.cpp"
+ },
+ {
+  "name": "TogglePlaySubtags",
+  "params": [],
+  "source": "src/app/commands/toggle_play_option.cpp"
+ },
+ {
+  "name": "TogglePreview",
+  "params": [],
+  "source": "src/app/commands/cmd_toggle_preview.cpp",
+  "requiresUI": true,
+  "description": "Toggles the visibility of the preview window"
+ },
+ {
+  "name": "ToggleRewindOnStop",
+  "params": [],
+  "source": "src/app/commands/toggle_play_option.cpp"
+ },
+ {
+  "name": "ToggleTilesMode",
+  "params": [],
+  "source": "src/app/commands/cmd_toggle_tiles_mode.cpp"
+ },
+ {
+  "name": "ToggleTimelineThumbnails",
+  "params": [],
+  "source": "src/app/commands/cmd_toggle_timeline_thumbnails.cpp",
+  "description": "Toggles the timeline thumbnails preference"
+ },
+ {
+  "name": "ToggleWorkspaceLayout",
+  "params": [],
+  "source": "src/app/commands/toggle_workspace_layout.cpp",
+  "description": "Toggles the Workspace Layout UI. This command only opens or closes the workspace layout mode, and cannot be used to select a specific Layout."
+ },
+ {
+  "name": "Undo",
+  "params": [],
+  "source": "src/app/commands/cmd_undo.cpp"
+ },
+ {
+  "name": "UndoHistory",
+  "params": [],
+  "source": "src/app/commands/cmd_undo_history.cpp",
+  "requiresUI": true,
+  "description": "Shows the undo history window"
+ },
+ {
+  "name": "UnlinkCel",
+  "params": [],
+  "source": "src/app/commands/cmd_unlink_cel.cpp",
+  "description": "Equivalent to `app.undo()`"
+ },
+ {
+  "name": "WidgetZoo",
+  "params": [],
+  "source": "src/app/commands/cmd_widget_zoo.cpp"
+ },
+ {
+  "name": "Zoom",
+  "params": [
+   {
+    "name": "action",
+    "type": "string"
+   },
+   {
+    "name": "percentage",
+    "type": "string"
+   },
+   {
+    "name": "focus",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_zoom.cpp",
+  "requiresUI": true,
+  "description": "Changes the zoom on the active editor"
+ },
+ {
+  "name": "Debugger",
+  "params": [],
+  "source": "src/app/commands/debugger.cpp"
+ },
+ {
+  "name": "DeveloperConsole",
+  "params": [],
+  "source": "src/app/commands/cmd_developer_console.cpp",
+  "requiresUI": true,
+  "description": "Opens the developer console (experimental)"
+ },
+ {
+  "name": "OpenScriptFolder",
+  "params": [],
+  "source": "src/app/commands/cmd_open_script_folder.cpp",
+  "description": "Opens the Aseprite script folder in the file explorer"
+ },
+ {
+  "name": "RunScript",
+  "params": [
+   {
+    "name": "filename",
+    "type": "string"
+   }
+  ],
+  "source": "src/app/commands/cmd_run_script.cpp",
+  "description": "Run a script given by the `filename` parameter - any other parameters are passed to the script."
+ }
+]

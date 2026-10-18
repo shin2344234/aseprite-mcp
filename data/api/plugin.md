@@ -1,0 +1,181 @@
+# Plugin
+
+Since Aseprite v1.2.18 we can create
+[plugins](https://www.aseprite.org/docs/extensions/) with scripts.
+
+To create a plugin we have to create a folder with a `package.json` file. For example:
+
+```json
+{
+  "name": "my-scripts",
+  "displayName": "My Scripts",
+  "description": "My scripts do something",
+  "version": "0.1",
+  "author": { "name": "FirstName LastName",
+              "email": "my@email.com",
+              "url": "https://mywebsite.com/" },
+  "contributors": [ ],
+  "publisher": "myname",
+  "license": "CC-BY-4.0",
+  "categories": [ "Scripts" ],
+  "contributes": {
+    "scripts": [
+        { "path": "./my-script.lua" }
+    ]
+  }
+}
+```
+
+Then we create a `my-script.lua` file inside the folder. For example:
+
+```lua
+function init(plugin)
+  print("Aseprite is initializing my plugin")
+
+  -- we can use "plugin.preferences" as a table with fields for
+  -- our plugin (these fields are saved between sessions)
+  if plugin.preferences.count == nil then
+    plugin.preferences.count = 0
+  end
+
+  --
+  plugin:newCommand{
+    id="MyFirstCommand",
+    title="My First Command",
+    group="cel_popup_properties",
+    onclick=function()
+      plugin.preferences.count = plugin.preferences.count+1
+    end
+  }
+end
+
+function exit(plugin)
+  print("Aseprite is closing my plugin, MyFirstCommand was called "
+        .. plugin.preferences.count .. " times")
+end
+```
+
+Then we compress both files (`package.json` and `my-script.lua`) to a zip 
+archive, and change the `.zip` extension to `.aseprite-extension`.
+
+To install the extension just double-clicking it should be enough on Windows or macOS. Alternatively, you can install it from *Edit > Preferences > Extensions > Add Extension*.
+
+## Plugin.name
+
+Name of the extension.
+
+## Plugin.displayName
+
+Display name of the extension.
+
+## Plugin.version
+
+Version of the extension.
+
+## Plugin.path
+
+Path where the extension is installed.
+
+## Plugin.preferences
+
+It's a Lua table where you can load/save any kind of Lua value here
+and they will be saved/restored automatically on each session.
+
+## Plugin:newCommand()
+
+```lua
+function init(plugin)
+  plugin:newCommand{
+    id="CommandName",
+    title="User Friendly Command Name",
+    group=string,
+    onclick=function()
+      ...
+    end,
+    onenabled=function()
+      ...
+      return true | false
+    end,
+    onchecked=function()
+      ...
+      return true | false
+    end
+  }
+end
+```
+
+Creates a new command that can be associated with keyboard shortcuts and
+is added to the app menu in the specified `"group"`. Groups are defined
+in the [`gui.xml` file](https://github.com/aseprite/aseprite/blob/main/data/gui.xml)
+inside the `<menus>` element.
+
+* `onclick`: Function to be called when the command is executed
+  (clicked or an associated keyboard shortcut pressed).
+* `onenabled`: Optional function to check if the command should be
+  available (enabled or disabled). It should return true if the
+  command can be executed right now. If this function is not specified,
+  the command will always be available to be executed by the user.
+* `onchecked`: Optional function to check whether the command should have a checkbox. This is called every time the command is displayed in a menu (e.g., when a dropdown is opened). It should return true if the command should have a checked checkbox next to it.
+
+## Plugin:newMenuGroup()
+
+```lua
+function init(plugin)
+  plugin:newMenuGroup{
+    id="new_group_id",
+    title="Menu Item Label",
+    group="parent_group_id"
+  }
+end
+```
+
+Creates a new menu item which will contain a submenu grouping several
+plugin commands.
+
+* `id`: ID to identify this new menu group in
+  [`Plugin:newCommand{ ..., group=id, ... }`](#pluginnewcommand)
+  calls to add several commands/menu items as elements of this
+  group submenu.
+* `group`: Specifies the existing group to which this new menu item should be added.
+  Existing app groups are defined in the
+  [`gui.xml` file](https://github.com/aseprite/aseprite/blob/main/data/gui.xml)
+  inside the `<menus>` element.
+
+## Plugin:newMenuSeparator()
+
+```lua
+function init(plugin)
+  plugin:newMenuSeparator{
+    group="group_id"
+  }
+end
+```
+
+Creates a menu separator in the given menu group, useful to separate
+several [Plugin:newCommand](#pluginnewcommand) calls.
+
+## Plugin:newFileFormat()
+
+```lua
+function init(plugin)
+  plugin:newFileFormat{
+    name=string,
+    binary=boolean,
+    supports=FormatSupport,
+    extensions={ string },
+    onload=function(ev) end,
+    onsave=function(ev) end
+  }
+end
+```
+
+Registers a new file format handler.
+
+* `name`: Optional, will use the first extension registered otherwise
+* `binary`: Optional, whether the file will be opened in binary mode or not (set to `false` for text-only formats, otherwise defaults to `true`)
+* `supports`: Optional, a set of flags specifying the capabilities of this format, see [FormatSupport](api/formatsupport.md) for a description of each flag. Defaults to `FILE_SUPPORT_RGB | FILE_SUPPORT_RGBA | FILE_SUPPORT_GRAY | FILE_SUPPORT_GRAYA | FILE_SUPPORT_INDEXED`.
+* `extensions`: The extension to be registered, without the dot ("."). They cannot overlap with an existing format that Aseprite supports (for example, "png"), if the format has already been registered by either Aseprite itself or another plugin, registration will fail with an error.
+* `onload/onsave`: The function that is called for the extension to convert the given file to one or multiple Sprites. It is called with a table argument containing a `file` and `filename`. The `file` is an open Lua file handle to whatever we're loading or saving. For loading, this function must return a Sprite object on success, or raise an error otherwise. For saving, the function should return a boolean on success or failure, or raise an error to give the user more details.
+
+For an example of a minimal implementation of a file format, see [here](https://github.com/ckaiser/aseprite-ppm-example).
+
